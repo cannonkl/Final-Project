@@ -61,7 +61,7 @@ for j=1:71
     
     year = j +1947;
     
-    I = find(y==year);
+    I = y==year;
     tempyear = temp(I); 
 
 summer = false; 
@@ -136,6 +136,7 @@ title('Length of Summer Days in Northwest Region')
  
  Imean = find(years > 1980 & years < 2001);
  baseline_mean = mean(sumdays(Imean));
+ baseline_std = std(sumdays(Imean));
  SumDaysMeanAnomaly = sumdays - baseline_mean;
  SumDaysMeanSmooth= movmean(SumDaysMeanAnomaly,5);
  
@@ -168,7 +169,20 @@ title('Length of Summer Days in Northwest Region')
  plot(years(indrecent:end),f,'-c')
  
  legend('Length of Summer Anomaly','Smoothed Summer Anomaly','Linear Trend','Linear Trend from 1980-2020')
+ %% Has there been an emergence yet? Apparently not.
  
+    year_test = 1:200;
+    
+    signal = P_all(1,1).*year_test;
+   
+    noise = baseline_std;
+    
+    I = find(signal>noise,1,'first');
+    
+    emergence_year=year_test(I)+1948;
+    
+     
+    
  
 
  
