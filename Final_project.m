@@ -1,6 +1,6 @@
 % DESCRIPTION:
-%   This code finds the length of days where a temperature exists within an
-%   and then shows how this length of days has varied over time when compared
+%   This code finds the length of days where a temperature exists within a 
+%   certain threshold and then shows how this length of days has varied over time when compared
 %   to a baseline.  
 %
 % AUTHORS:Kasey Cannon
