@@ -134,7 +134,7 @@ title('Length of Summer Days in Northwest Region')
 % A linear line was then fit to the data to show any longer term linear
 % behavior. 
  
- Imean = find(years > 1980 & years < 2001);
+ Imean = find(years > 1950 & years < 1975);
  baseline_mean = mean(sumdays(Imean));
  baseline_std = std(sumdays(Imean));
  SumDaysMeanAnomaly = sumdays - baseline_mean;
@@ -173,14 +173,16 @@ title('Length of Summer Days in Northwest Region')
  
     year_test = 1:200;
     
+    signal_recent = P_recent(1,1).*year_test;
     signal = P_all(1,1).*year_test;
-   
+    
     noise = baseline_std;
     
-    I = find(signal>noise,1,'first');
+    Irecent = find(signal_recent>noise,1,'first');
+    Iall = find(signal>noise,1,'first');
     
-    emergence_year=year_test(I)+1948;
-    
+    emergence_year_recent=year_test(Irecent)+1948;
+    emergence_year=year_test(Iall)+1948;
      
     
  
