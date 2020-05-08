@@ -7,7 +7,7 @@
 %
 % REFERENCE:
 %    Written for EESC 4464: Environmental Data Exploration and Analysis, Boston College
-%    Data are from the  
+%    Data is from the  
 %==================================================================
 %% Load in the Data and assign relevant variables 
 Seatac='2114119.csv';
@@ -115,7 +115,8 @@ debug_counter = 0;
   end
 end
 
-
+Sumdays_avg = mean(sumdays); 
+sumdays_avg_40 = mean(sumdays(31:71,1));
 %%
 %Plot of length of summer days per year through the time period of the data
 figure(3)
@@ -129,7 +130,7 @@ title('Length of Summer Days in Northwest Region')
 
 %% 
 % A baseline was created to compare the length of years to a baseline mean
-% which was assigned to be 1981-2000. The data then had the baseline
+% which was assigned to be 1951-1974. The data then had the baseline
 % subtracted from it to create difference from the baseline for each year.
 % A linear line was then fit to the data to show any longer term linear
 % behavior. 
@@ -143,7 +144,7 @@ title('Length of Summer Days in Northwest Region')
  P_all = polyfit(years, SumDaysMeanAnomaly, 1);
  
  %In order to compare long term behavior to more recent a liner line was
- %also fit to just the last 20 years. 
+ %also fit to just the last 40 years. 
  RecentYear = 1980;
  indrecent = find(years == RecentYear);
  P_recent = polyfit(years(indrecent:end), SumDaysMeanAnomaly(indrecent:end), 1);
@@ -158,7 +159,7 @@ title('Length of Summer Days in Northwest Region')
  xlabel('Year') 
  xlim([1945 2025])
  ylabel('Days of Summer')
- title('The Length of Summer Days Compared to 1981-2000 Baseline')
+ title('The Length of Summer Days Compared to 1951-1974 Baseline')
  hold on 
 
  hline =refline(P_all(1,1),P_all(1,2));
