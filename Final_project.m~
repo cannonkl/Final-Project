@@ -123,7 +123,7 @@ figure(3)
 
 plot(years,sumdays,'k.:','LineWidth',1.5)
 hold on
-
+plot(years(1950:1970),sumdays(yea
 xlabel('Year')
 ylabel('Length of Summer (days)')
 title('Length of Summer Days in Northwest Region')
@@ -160,7 +160,7 @@ title('Length of Summer Days in Northwest Region')
  xlabel('Year') 
  xlim([1945 2025])
  ylabel('Days of Summer')
- title('The Length of Summer Days Compared to 1951-1970 Baseline')
+ title('The Length of Summer Days Compared to 1951-1974 Baseline')
  hold on 
 
  hline =refline(P_all(1,1),P_all(1,2));
